@@ -1,0 +1,24 @@
+{
+    "name": "setupai/mimi_laravel",
+    "description": "just a mini framwork of php",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Core\\": "core/"
+        },
+        "files":[
+            "core/helpers.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "mc tokyo",
+            "email": "mctokyo12@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
