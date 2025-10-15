@@ -2,7 +2,7 @@
     RewriteEngine On 
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteBase /mimi_laravel/public/
+    RewriteBase /mini-php-framework/public/
     RewriteRule ^(.*)$ index.php [QSA,L]
     
 </ifModule>

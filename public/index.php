@@ -1,7 +1,7 @@
 <?php
 
 use Dotenv\Dotenv;
-define('BASE_PATH', '/mimi_laravel/public');
+define('BASE_PATH', '/mini-php-framework/public');
 require_once(__DIR__."/../vendor/autoload.php");
 
 $dotenv = Dotenv::createImmutable(dirname(__DIR__));

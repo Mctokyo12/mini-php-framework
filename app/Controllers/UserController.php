@@ -39,18 +39,29 @@ class UserController
             $data = $this->request->filter($this->request->all());
             $validator = new Validator($data,
                 [
-                    "name"=>"required|min:2|max:20",
+                    "nom"=>"required|min:2|max:20",
+                    "prenom"=>"required|min:2|max:20",
+                    "email"=>"required|email",
                     "password"=>"required|min:3|max:15"
                 ]
             );
+
             if ($validator->fails()) {
                view("inscription" , ["errors"=>$validator->errors()]);
+               return;
             }
 
-            $name = $data['name'];
-            $password = $data["password"];
+            $name = $data['nom'];
+            $password = sha1($data["password"] );
+            $email = $data['email'];
+            $prenom = $data['prenom'];
+
+            $id = $this->userModel->create($data);
+            $user = $this->userModel->find($id);
+
+
             $message = "";
-            view("inscription" , ["message"=>$message]);
+            view("inscription" , ["user"=>$user]);
             
         }
     }

@@ -4,7 +4,7 @@ namespace App\Models;
 use Core\Model;
 class UserModel extends Model 
 {
-    private string $table = "users";
+    protected string $table = "users";
 
     public function all(): array {
         return $this->fetchAll("SELECT * FROM $this->table");

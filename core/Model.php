@@ -24,6 +24,7 @@ abstract class Model
     protected   function fetchAll(string $sql , array $params = []) : array
     {
         return $this->query($sql , $params)->fetchAll();
+        
     }
 
     protected function fetch(string $sql , array $params = []) : array
@@ -37,7 +38,7 @@ abstract class Model
         $placeholders = implode("," , array_map( fn($k)=> ":$k" , array_keys($data)));
 
         $sql = "INSERT INTO {$this->table} ($columns) VALUES ($placeholders)";
-        $stmt = $this->db-prepare($sql);
+        $stmt = $this->db->prepare($sql);
         $stmt->execute($data);
         return (int) $this->db->lastInsertId();
     }

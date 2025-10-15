@@ -18,12 +18,18 @@
                <?php }?>
            <?php }?>
         </ul>
+    <?php }else if(isset($user)){ ?>
+        <p>Utilisateur , <?= htmlspecialchars($user['prenom'])?> a ete creer  avec succes !</p>
     <?php }else{ ?>
         <h1>Inscription</h1>
-        lo
+    
         <form action="<?=BASE_PATH?>/inscrire" method="post">
-            <label for="name">Name:</label>
-            <input type="text" name="name" id=""><br>
+            <label for="nom">Name:</label>
+            <input type="text" name="nom" id=""><br>
+            <label for="name">Prenom:</label>
+            <input type="text" name="prenom" id=""><br>
+            <label for="name">Email:</label>
+            <input type="text" name="email" id=""><br>
             <label for="password">Password:</label>
             <input type="password" name="password" id=""><br>
             <input type="submit" value="s'inscrire">
