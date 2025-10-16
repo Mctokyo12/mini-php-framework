@@ -24,14 +24,21 @@ class UserController
     public function showHome() 
     {   
         $users = $this->userModel->all();
-        view("home" , ["users"=>$users]);
+        view("home" , ["message"=>"Bienvenue la team","users"=>$users]);
     }
 
+    public  function showAbout() 
+    {
+        view("about");
+    }
     public function showInscription(Request $request)
     { 
         
         view("inscription" , ["request"=>$request->all()]);
     }
+
+
+ 
 
     public  function handleInscription() 
     {
@@ -50,6 +57,8 @@ class UserController
                view("inscription" , ["errors"=>$validator->errors()]);
                return;
             }
+
+            $data['password'] = sha1($data["password"]);
 
             $name = $data['nom'];
             $password = sha1($data["password"] );
